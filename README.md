@@ -36,6 +36,7 @@ initial_value = 0.0
 Instructions for compiling and building the project, assuming you are in the project root directory `MatrixLib`:
 
 ```bash
+mkdir build
 cd build
 cmake ..
 make
