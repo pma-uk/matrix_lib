@@ -33,10 +33,25 @@
 */
 Matrix::Matrix()
 {
-    auto [rows, cols, initValue] = ConfigReader::readMatrixConfig("config.ini");
-    this->rows = rows;
-    this->cols = cols;
-    this->matrixData = std::vector<std::vector<double>>(rows, std::vector<double>(cols, initValue));
+    try 
+    {
+        auto [rows, cols, initValue] = ConfigReader::readMatrixConfig("config.ini");
+        this->rows = rows;
+        this->cols = cols;
+        this->matrixData = std::vector<std::vector<double>>(rows, std::vector<double>(cols, initValue));
+    } 
+    catch (const std::runtime_error& e) 
+    {
+        std::cerr << "Error: " << e.what() << std::endl;
+
+        throw;
+    }
+    catch (...) 
+    {
+        std::cerr << "An unexpected error occurred while reading the matrix configuration." << std::endl << "Setting matrix to default (3,3) with 0.0 initial value" << std::endl;
+
+        throw;
+    }
 }
 
 
