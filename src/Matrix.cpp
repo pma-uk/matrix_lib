@@ -48,7 +48,7 @@ Matrix::Matrix()
     }
     catch (...) 
     {
-        std::cerr << "An unexpected error occurred while reading the matrix configuration." << std::endl << "Setting matrix to default (3,3) with 0.0 initial value" << std::endl;
+        std::cerr << "An unexpected error occurred while reading the matrix configuration." << std::endl;
 
         throw;
     }
