@@ -28,7 +28,6 @@ std::tuple<int, int, double> ConfigReader::readMatrixConfig(const std::string& f
     if (!file.is_open()) 
     {
         throw std::runtime_error("Failed to open config file: " + filename);
-        return std::make_tuple(0, 0, 0.0);
     }
 
     int rows = 0;
