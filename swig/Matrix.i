@@ -40,6 +40,15 @@
 // Expose class and methods to Python
 %newobject Matrix::toString;
 
+%extend Matrix 
+{
+    // Wrapping the toString method
+    std::string __str__() 
+    {
+        return self->toString();
+    }
+}
+
 %include "Matrix.h"
 %include "LibSetup.h"
 
